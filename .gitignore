@@ -1,0 +1,11 @@
+# Private test set: images and answer key never leave your machine.
+data/
+# Raw results contain each model's guesses and clue text, which describe the images.
+# Only the totals in site/data.json are published.
+results/
+
+node_modules/
+.env
+.env.local
+.DS_Store
+.vercel

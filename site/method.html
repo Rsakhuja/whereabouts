@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology | Whereabouts</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f2c230' stroke='%231b2733' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%231b2733'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="logo" href="./"><span class="logo-mark" aria-hidden="true"></span>Whereabouts</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Leaderboard</a>
+        <a href="features.html">Features</a>
+        <a href="method.html" aria-current="page">Methodology</a>
+        <a href="#" data-repo hidden>GitHub</a>
+      </nav>
+    </header>
+
+    <main class="prose">
+      <div class="intro-block">
+        <h1>Methodology</h1>
+        <p class="lede">How the test set was built, how answers are scored, and what's kept private and why.</p>
+        <nav class="toc" aria-label="On this page">
+          <a href="#task">The task</a><a href="#data">Test set</a><a href="#scoring">Scoring</a>
+          <a href="#private">What's published</a><a href="#limits">Limitations</a>
+        </nav>
+      </div>
+
+      <h2 id="task">The task</h2>
+      <p>A model is shown one street-level photo with no caption, metadata or follow-up questions, and asked to reply in JSON with:</p>
+      <ul>
+        <li><strong>country</strong></li>
+        <li><strong>state or province</strong>: the first-level division (a US state, a Japanese prefecture, a Brazilian estado)</li>
+        <li><strong>city</strong>: the nearest city, town or village</li>
+        <li><strong>features</strong>: 3–5 visual features that led to the guess</li>
+      </ul>
+      <p>Every model gets the same prompt. Reasoning modes are off unless a leaderboard row says otherwise. Each model answers each photo once. When photos are added, models are run on the new photos only, and the date each photo was run is recorded. A model only appears on the leaderboard once it has answered every photo in the current set.</p>
+
+      <h2 id="data">The test set</h2>
+      <p><span data-stat="images">76</span> photos, one per city, across <span data-stat="countries">48</span> countries and six world regions. The cities are mostly large capitals and regional centres, from Lagos and Lahore to Montevideo and Melbourne.</p>
+      <p>The photos are Street View views captured by hand in 2026, one location per city, mostly chosen to show an ordinary street scene. Each has a hand-written answer key: country, first-level division and city.</p>
+
+      <h3>Screening</h3>
+      <p>Every photo was checked against written, quality-only criteria. A photo is rejected if it is:</p>
+      <ol>
+        <li>blurry or smeared so the main scene can't be made out</li>
+        <li>too dark or overexposed to see the street</li>
+        <li>mostly blocked by a vehicle, wall, windscreen or close-up object</li>
+        <li>not outdoors at street level</li>
+        <li>not actually in the labelled city</li>
+        <li>showing an unblurred face or licence plate</li>
+      </ol>
+      <p>Being too easy (a famous landmark, a sign naming the city) or too hard (a generic street) is <em>not</em> a reason to reject: easy photos are tagged instead. Photos are never added, swapped or removed after seeing how models did on them.</p>
+      <table>
+        <thead><tr><th>Screening result</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Rejected</td><td>0</td></tr>
+          <tr><td>Cropped to remove a large map-interface overlay</td><td>1</td></tr>
+          <tr><td>Tagged as a famous landmark</td><td><span data-stat="landmarks">1</span></td></tr>
+          <tr><td>Borderline but kept (a stitching smear in one corner; a rooftop rather than street-level view)</td><td>2</td></tr>
+        </tbody>
+      </table>
+      <p><strong>A caveat, stated plainly:</strong> the photos were picked by hand before these criteria were written down, and were checked against them afterwards. Future batches are screened against the criteria from the start. Some photos still carry faint Street View watermarks or small map icons. These don't reveal the location, and if a model cites them as a feature, the Features page counts that separately.</p>
+
+      <h2 id="scoring">Scoring</h2>
+      <p><strong>One point each for the right country, state or province, and city</strong>, out of 3 per photo. The headline score is total points divided by the maximum.</p>
+      <h3>Matching place names</h3>
+      <p>Models write place names freely, so answers are matched through a hand-built list of names and spellings for every place in the answer key. For example:</p>
+      <ul>
+        <li>"Bengaluru" counts as Bangalore, "Saigon" as Ho Chi Minh City, "CDMX" as Mexico City</li>
+        <li>"Praha", "Wien" and "Türkiye" count as Prague, Vienna and Turkey</li>
+        <li>local-script answers such as "東京" or "서울" count as Tokyo and Seoul</li>
+        <li>a guess like "Suginami-ku, Tokyo" earns the state point (Tokyo) but not the city point: naming a ward is not naming the city</li>
+      </ul>
+      <p>A name that isn't on the list scores zero for that level. The list only needs to cover the correct answers, since any other place is wrong anyway.</p>
+      <h3>Refusals and errors</h3>
+      <p>A reply that declines to answer, or answers "unknown" for all three levels, counts as a refusal and scores zero, and is shown as wrong on the leaderboard. Results are only published once every photo has a reply.</p>
+      <h3>Uncertainty</h3>
+      <p>With <span data-stat="images">76</span> photos, each photo is worth about 1.3% of the score. The range under each score is a 95% bootstrap confidence interval (5,000 resamples of the photo set). When two models' ranges overlap heavily, the benchmark can't reliably tell them apart.</p>
+
+      <h2 id="private">What's published, and what isn't</h2>
+      <p>The photos, the answer key and each model's individual guesses are kept private. Only totals are published: scores, per-level accuracy, region breakdowns and feature-type counts. Two reasons:</p>
+      <ul>
+        <li><strong>Contamination.</strong> A public test set with answers can end up in future training data, and then high scores could mean memorisation rather than skill.</li>
+        <li><strong>Licensing.</strong> The photos are Street View captures, which aren't ours to redistribute. Using them privately and publishing only aggregate scores keeps that use minimal.</li>
+      </ul>
+      <p>The code is public: the runner, scoring, the place-name list and this site. Anyone can run it on their own photos.</p>
+
+      <h2 id="limits">Limitations</h2>
+      <ul>
+        <li><strong>Small.</strong> <span data-stat="images">76</span> photos is enough to separate strong models from weak ones, not to rank models a few points apart.</li>
+        <li><strong>Big cities only.</strong> Every answer is a major city, which makes guessing the city easier than it would be for random locations. Rural and small-town performance isn't measured.</li>
+        <li><strong>Uneven regions.</strong> Asia and the Middle East have 33 photos, Oceania has 2. Region scores for small regions are rough.</li>
+        <li><strong>One photo per city, one answer per model.</strong> There is no repeat sampling yet, so run-to-run variation isn't measured. Photos added later are answered later, so a model's results can span several dates; providers normally keep versioned model IDs fixed, but this is worth knowing.</li>
+        <li><strong>Possible prior exposure.</strong> These exact captures aren't online, but the places are on Street View, which models may have seen in training.</li>
+        <li><strong>Hand-picked.</strong> Curation keeps quality consistent, but a person chose every view. The written criteria and the rule against swapping photos after seeing results are there to limit that bias.</li>
+        <li><strong>Claimed features aren't verified.</strong> See the <a href="features.html">Features page</a> caveats.</li>
+      </ul>
+    </main>
+
+    <footer>
+      <p>Whereabouts. Test set version <span data-stat="version">–</span> (<span data-stat="images">–</span> photos). Results last updated <span data-stat="updated">–</span>.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,639 @@
+{
+  "generated_at": "2026-11-23T01:50:17.786Z",
+  "repo_url": null,
+  "dataset": {
+    "name": "Whereabouts",
+    "version": "ac287b88",
+    "images": 76,
+    "countries": 48,
+    "regions": {
+      "Africa": 5,
+      "Asia & Middle East": 33,
+      "Oceania": 2,
+      "Europe": 12,
+      "North & Central America": 14,
+      "South America": 10
+    },
+    "landmark_images": 1
+  },
+  "categories": [
+    {
+      "key": "script",
+      "label": "Script & language"
+    },
+    {
+      "key": "signs",
+      "label": "Signs & shop names"
+    },
+    {
+      "key": "roads",
+      "label": "Road markings & driving side"
+    },
+    {
+      "key": "vehicles",
+      "label": "Vehicles & plates"
+    },
+    {
+      "key": "architecture",
+      "label": "Architecture & buildings"
+    },
+    {
+      "key": "nature",
+      "label": "Vegetation, terrain & climate"
+    },
+    {
+      "key": "infrastructure",
+      "label": "Poles, wires & street furniture"
+    },
+    {
+      "key": "landmarks",
+      "label": "Landmarks"
+    },
+    {
+      "key": "people",
+      "label": "People & clothing"
+    },
+    {
+      "key": "interface",
+      "label": "Map interface & watermarks"
+    },
+    {
+      "key": "other",
+      "label": "Other"
+    }
+  ],
+  "models": [
+    {
+      "key": "anthropic_claude-opus-5.5",
+      "model": "anthropic/claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "provider": "Anthropic",
+      "reasoning": "off",
+      "prompt_version": "v1",
+      "evaluated_at": "2026-11-23T01:34:08.349Z",
+      "is_new": true,
+      "older": false,
+      "complete": true,
+      "summary": {
+        "n": 76,
+        "refused": 0,
+        "errors": 0,
+        "points": 219,
+        "maxPoints": 228,
+        "pct": 0.9605263157894737,
+        "ci95": [
+          0.9210526315789473,
+          0.9912280701754386
+        ],
+        "country": 0.9868421052631579,
+        "admin": 0.9342105263157895,
+        "city": 0.9605263157894737,
+        "outcomes": {
+          "city": 70,
+          "state": 1,
+          "country": 4,
+          "partial": 0,
+          "wrong": 1,
+          "refused": 0,
+          "error": 0
+        },
+        "byRegion": {
+          "Africa": {
+            "n": 5,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "Asia & Middle East": {
+            "n": 33,
+            "pct": 0.9191919191919192,
+            "country": 0.9696969696969697,
+            "city": 0.9090909090909091
+          },
+          "Oceania": {
+            "n": 2,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "Europe": {
+            "n": 12,
+            "pct": 0.9722222222222222,
+            "country": 1,
+            "city": 1
+          },
+          "North & Central America": {
+            "n": 14,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "South America": {
+            "n": 10,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          }
+        },
+        "clues": {
+          "script": {
+            "cited": 20,
+            "share": 0.2631578947368421,
+            "countryWhenCited": 0.95,
+            "cityWhenCited": 0.95
+          },
+          "signs": {
+            "cited": 62,
+            "share": 0.8157894736842105,
+            "countryWhenCited": 0.9838709677419355,
+            "cityWhenCited": 0.9516129032258065
+          },
+          "roads": {
+            "cited": 53,
+            "share": 0.6973684210526315,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9622641509433962
+          },
+          "vehicles": {
+            "cited": 46,
+            "share": 0.6052631578947368,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9565217391304348
+          },
+          "architecture": {
+            "cited": 73,
+            "share": 0.9605263157894737,
+            "countryWhenCited": 0.9863013698630136,
+            "cityWhenCited": 0.958904109589041
+          },
+          "nature": {
+            "cited": 43,
+            "share": 0.5657894736842105,
+            "countryWhenCited": 0.9767441860465116,
+            "cityWhenCited": 0.9534883720930233
+          },
+          "infrastructure": {
+            "cited": 35,
+            "share": 0.4605263157894737,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9428571428571428
+          },
+          "landmarks": {
+            "cited": 12,
+            "share": 0.15789473684210525,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "people": {
+            "cited": 9,
+            "share": 0.11842105263157894,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "interface": {
+            "cited": 0,
+            "share": 0,
+            "countryWhenCited": null,
+            "cityWhenCited": null
+          },
+          "other": {
+            "cited": 29,
+            "share": 0.3815789473684211,
+            "countryWhenCited": 0.9655172413793104,
+            "cityWhenCited": 0.9655172413793104
+          }
+        },
+        "avgCluesPerGuess": 5
+      }
+    },
+    {
+      "key": "openai_gpt-6.2-astra",
+      "model": "openai/gpt-6.2-astra",
+      "name": "GPT-6.2 Astra",
+      "provider": "OpenAI",
+      "reasoning": "off",
+      "prompt_version": "v1",
+      "evaluated_at": "2026-11-23T01:35:02.826Z",
+      "is_new": true,
+      "older": false,
+      "complete": true,
+      "summary": {
+        "n": 76,
+        "refused": 0,
+        "errors": 0,
+        "points": 218,
+        "maxPoints": 228,
+        "pct": 0.956140350877193,
+        "ci95": [
+          0.9166666666666665,
+          0.9868421052631579
+        ],
+        "country": 0.9868421052631579,
+        "admin": 0.9342105263157895,
+        "city": 0.9473684210526315,
+        "outcomes": {
+          "city": 70,
+          "state": 1,
+          "country": 4,
+          "partial": 0,
+          "wrong": 1,
+          "refused": 0,
+          "error": 0
+        },
+        "byRegion": {
+          "Africa": {
+            "n": 5,
+            "pct": 0.8666666666666667,
+            "country": 1,
+            "city": 0.8
+          },
+          "Asia & Middle East": {
+            "n": 33,
+            "pct": 0.9292929292929293,
+            "country": 0.9696969696969697,
+            "city": 0.9090909090909091
+          },
+          "Oceania": {
+            "n": 2,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "Europe": {
+            "n": 12,
+            "pct": 0.9722222222222222,
+            "country": 1,
+            "city": 1
+          },
+          "North & Central America": {
+            "n": 14,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "South America": {
+            "n": 10,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          }
+        },
+        "clues": {
+          "script": {
+            "cited": 20,
+            "share": 0.2631578947368421,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9
+          },
+          "signs": {
+            "cited": 60,
+            "share": 0.7894736842105263,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9666666666666667
+          },
+          "roads": {
+            "cited": 38,
+            "share": 0.5,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9473684210526315
+          },
+          "vehicles": {
+            "cited": 42,
+            "share": 0.5526315789473685,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9523809523809523
+          },
+          "architecture": {
+            "cited": 63,
+            "share": 0.8289473684210527,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9682539682539683
+          },
+          "nature": {
+            "cited": 34,
+            "share": 0.4473684210526316,
+            "countryWhenCited": 0.9705882352941176,
+            "cityWhenCited": 0.9117647058823529
+          },
+          "infrastructure": {
+            "cited": 20,
+            "share": 0.2631578947368421,
+            "countryWhenCited": 0.95,
+            "cityWhenCited": 0.9
+          },
+          "landmarks": {
+            "cited": 10,
+            "share": 0.13157894736842105,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "people": {
+            "cited": 8,
+            "share": 0.10526315789473684,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "interface": {
+            "cited": 0,
+            "share": 0,
+            "countryWhenCited": null,
+            "cityWhenCited": null
+          },
+          "other": {
+            "cited": 25,
+            "share": 0.32894736842105265,
+            "countryWhenCited": 0.96,
+            "cityWhenCited": 0.88
+          }
+        },
+        "avgCluesPerGuess": 4
+      }
+    },
+    {
+      "key": "google_gemini-3.8-flash",
+      "model": "google/gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "provider": "Google",
+      "reasoning": "off",
+      "prompt_version": "v1",
+      "evaluated_at": "2026-11-23T01:38:30.549Z",
+      "is_new": true,
+      "older": false,
+      "complete": true,
+      "summary": {
+        "n": 76,
+        "refused": 0,
+        "errors": 0,
+        "points": 211,
+        "maxPoints": 228,
+        "pct": 0.9254385964912281,
+        "ci95": [
+          0.8728070175438596,
+          0.969298245614035
+        ],
+        "country": 0.9736842105263158,
+        "admin": 0.881578947368421,
+        "city": 0.9210526315789473,
+        "outcomes": {
+          "city": 66,
+          "state": 1,
+          "country": 7,
+          "partial": 0,
+          "wrong": 2,
+          "refused": 0,
+          "error": 0
+        },
+        "byRegion": {
+          "Africa": {
+            "n": 5,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "Asia & Middle East": {
+            "n": 33,
+            "pct": 0.8888888888888888,
+            "country": 0.9393939393939394,
+            "city": 0.9090909090909091
+          },
+          "Oceania": {
+            "n": 2,
+            "pct": 0.6666666666666666,
+            "country": 1,
+            "city": 0.5
+          },
+          "Europe": {
+            "n": 12,
+            "pct": 0.9444444444444444,
+            "country": 1,
+            "city": 0.9166666666666666
+          },
+          "North & Central America": {
+            "n": 14,
+            "pct": 1,
+            "country": 1,
+            "city": 1
+          },
+          "South America": {
+            "n": 10,
+            "pct": 0.9333333333333333,
+            "country": 1,
+            "city": 0.9
+          }
+        },
+        "clues": {
+          "script": {
+            "cited": 26,
+            "share": 0.34210526315789475,
+            "countryWhenCited": 0.9230769230769231,
+            "cityWhenCited": 0.8461538461538461
+          },
+          "signs": {
+            "cited": 60,
+            "share": 0.7894736842105263,
+            "countryWhenCited": 0.9666666666666667,
+            "cityWhenCited": 0.9166666666666666
+          },
+          "roads": {
+            "cited": 48,
+            "share": 0.631578947368421,
+            "countryWhenCited": 0.9583333333333334,
+            "cityWhenCited": 0.9166666666666666
+          },
+          "vehicles": {
+            "cited": 40,
+            "share": 0.5263157894736842,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.925
+          },
+          "architecture": {
+            "cited": 70,
+            "share": 0.9210526315789473,
+            "countryWhenCited": 0.9714285714285714,
+            "cityWhenCited": 0.9142857142857143
+          },
+          "nature": {
+            "cited": 21,
+            "share": 0.27631578947368424,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9523809523809523
+          },
+          "infrastructure": {
+            "cited": 23,
+            "share": 0.3026315789473684,
+            "countryWhenCited": 0.9565217391304348,
+            "cityWhenCited": 0.9130434782608695
+          },
+          "landmarks": {
+            "cited": 14,
+            "share": 0.18421052631578946,
+            "countryWhenCited": 0.9285714285714286,
+            "cityWhenCited": 0.8571428571428571
+          },
+          "people": {
+            "cited": 17,
+            "share": 0.2236842105263158,
+            "countryWhenCited": 0.9411764705882353,
+            "cityWhenCited": 0.8823529411764706
+          },
+          "interface": {
+            "cited": 1,
+            "share": 0.013157894736842105,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "other": {
+            "cited": 29,
+            "share": 0.3815789473684211,
+            "countryWhenCited": 1,
+            "cityWhenCited": 0.9655172413793104
+          }
+        },
+        "avgCluesPerGuess": 4.4605263157894735
+      }
+    },
+    {
+      "key": "spacexai_grok-4.7",
+      "model": "spacexai/grok-4.7",
+      "name": "Grok 4.7",
+      "provider": "xAI",
+      "reasoning": "off",
+      "prompt_version": "v1",
+      "evaluated_at": "2026-11-23T01:36:21.289Z",
+      "is_new": true,
+      "older": false,
+      "complete": true,
+      "summary": {
+        "n": 76,
+        "refused": 0,
+        "errors": 0,
+        "points": 175,
+        "maxPoints": 228,
+        "pct": 0.7675438596491229,
+        "ci95": [
+          0.6885964912280702,
+          0.8464912280701755
+        ],
+        "country": 0.9078947368421053,
+        "admin": 0.6710526315789473,
+        "city": 0.7236842105263158,
+        "outcomes": {
+          "city": 50,
+          "state": 1,
+          "country": 18,
+          "partial": 0,
+          "wrong": 7,
+          "refused": 0,
+          "error": 0
+        },
+        "byRegion": {
+          "Africa": {
+            "n": 5,
+            "pct": 0.8666666666666667,
+            "country": 1,
+            "city": 0.8
+          },
+          "Asia & Middle East": {
+            "n": 33,
+            "pct": 0.7070707070707071,
+            "country": 0.8484848484848485,
+            "city": 0.6666666666666666
+          },
+          "Oceania": {
+            "n": 2,
+            "pct": 0.6666666666666666,
+            "country": 1,
+            "city": 0.5
+          },
+          "Europe": {
+            "n": 12,
+            "pct": 0.8611111111111112,
+            "country": 1,
+            "city": 0.8333333333333334
+          },
+          "North & Central America": {
+            "n": 14,
+            "pct": 0.9047619047619048,
+            "country": 1,
+            "city": 0.8571428571428571
+          },
+          "South America": {
+            "n": 10,
+            "pct": 0.6333333333333333,
+            "country": 0.8,
+            "city": 0.6
+          }
+        },
+        "clues": {
+          "script": {
+            "cited": 24,
+            "share": 0.3157894736842105,
+            "countryWhenCited": 0.9166666666666666,
+            "cityWhenCited": 0.5833333333333334
+          },
+          "signs": {
+            "cited": 59,
+            "share": 0.7763157894736842,
+            "countryWhenCited": 0.9322033898305084,
+            "cityWhenCited": 0.7457627118644068
+          },
+          "roads": {
+            "cited": 60,
+            "share": 0.7894736842105263,
+            "countryWhenCited": 0.9,
+            "cityWhenCited": 0.7166666666666667
+          },
+          "vehicles": {
+            "cited": 28,
+            "share": 0.3684210526315789,
+            "countryWhenCited": 0.9642857142857143,
+            "cityWhenCited": 0.75
+          },
+          "architecture": {
+            "cited": 65,
+            "share": 0.8552631578947368,
+            "countryWhenCited": 0.9076923076923077,
+            "cityWhenCited": 0.7076923076923077
+          },
+          "nature": {
+            "cited": 37,
+            "share": 0.4868421052631579,
+            "countryWhenCited": 0.8918918918918919,
+            "cityWhenCited": 0.6756756756756757
+          },
+          "infrastructure": {
+            "cited": 20,
+            "share": 0.2631578947368421,
+            "countryWhenCited": 0.85,
+            "cityWhenCited": 0.65
+          },
+          "landmarks": {
+            "cited": 13,
+            "share": 0.17105263157894737,
+            "countryWhenCited": 0.7692307692307693,
+            "cityWhenCited": 0.6923076923076923
+          },
+          "people": {
+            "cited": 7,
+            "share": 0.09210526315789473,
+            "countryWhenCited": 0.8571428571428571,
+            "cityWhenCited": 0.7142857142857143
+          },
+          "interface": {
+            "cited": 1,
+            "share": 0.013157894736842105,
+            "countryWhenCited": 1,
+            "cityWhenCited": 1
+          },
+          "other": {
+            "cited": 40,
+            "share": 0.5263157894736842,
+            "countryWhenCited": 0.925,
+            "cityWhenCited": 0.8
+          }
+        },
+        "avgCluesPerGuess": 4.9605263157894735
+      }
+    }
+  ]
+}

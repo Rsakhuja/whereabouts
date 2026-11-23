@@ -1,0 +1,25 @@
+{
+  "name": "whereabouts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Whereabouts: a geolocation benchmark for vision-language models, scored on country, state and city.",
+  "license": "MIT",
+  "scripts": {
+    "import": "ts-node src/import.ts",
+    "bench": "ts-node src/run.ts",
+    "site": "node scripts/build-site.mjs",
+    "dev": "node scripts/build-site.mjs && npx serve site",
+    "typecheck": "tsc --noEmit",
+    "rescore": "ts-node src/rescore.ts"
+  },
+  "dependencies": {
+    "ai": "^6.0.168",
+    "dotenv": "^16.0.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}

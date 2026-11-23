@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "echo 'static site: nothing to install'",
+  "buildCommand": "echo 'site/ is pre-built by npm run site'",
+  "outputDirectory": "site",
+  "cleanUrls": true
+}

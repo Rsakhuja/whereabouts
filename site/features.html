@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features: what models say they look at | Whereabouts</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f2c230' stroke='%231b2733' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%231b2733'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="logo" href="./"><span class="logo-mark" aria-hidden="true"></span>Whereabouts</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Leaderboard</a>
+        <a href="features.html" aria-current="page">Features</a>
+        <a href="method.html">Methodology</a>
+        <a href="#" data-repo hidden>GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="intro-block">
+        <h1>What models say they look at</h1>
+        <p class="lede">With every guess, each model lists the 3–5 visual features it says led to its answer. We sort those features into types and add them up across all <span data-stat="images">–</span> photos. That shows what each model leans on, and which kinds of features go with correct answers.</p>
+      </div>
+
+      <section class="block" aria-labelledby="share-title">
+        <h2 id="share-title">How often each model cites each type of feature</h2>
+        <p class="intro">Share of a model's answered rounds where at least one listed feature falls in that type. A feature can count towards more than one type.</p>
+        <div id="clue-share"></div>
+      </section>
+
+      <section class="block" aria-labelledby="payoff-title">
+        <h2 id="payoff-title">Do those features pay off?</h2>
+        <p class="intro">City accuracy on the rounds where a model cited that type of feature, compared with its accuracy over all rounds. Types cited fewer than 3 times aren't scored.</p>
+        <div id="clue-payoff"></div>
+      </section>
+
+      <section class="block prose" aria-labelledby="caveat-title">
+        <h2 id="caveat-title">Read these with care</h2>
+        <p><strong>These are features models claim to use, not proof of what drove the answer.</strong> A model can name a feature after the fact, or describe something that isn't in the photo at all. In earlier runs, models confidently misread street signs and misidentified landmarks. Checking whether claimed features are actually in the photo is planned.</p>
+        <p><strong>Feature types come from keyword rules</strong> (for example, "Cyrillic" or "script" counts as script and language). The rules are simple and transparent, but they will miss some phrasings. A pattern only becomes interesting when it shows up across many rounds.</p>
+        <p><strong>Correlation, not cause.</strong> If citing landmarks goes with higher accuracy, that may be because photos with landmarks are easier, not because the landmark reasoning is better.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Whereabouts. Test set version <span data-stat="version">–</span> (<span data-stat="images">–</span> photos). Results last updated <span data-stat="updated">–</span>.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

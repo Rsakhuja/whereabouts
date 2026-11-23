@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whereabouts: can AI models tell where a street photo was taken?</title>
+  <meta name="description" content="Whereabouts is a geolocation benchmark for vision-language models, scored on whether they name the right country, state and city.">
+  <meta property="og:title" content="Whereabouts">
+  <meta property="og:description" content="Can AI models tell where a street photo was taken? Scored on country, state and city.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f2c230' stroke='%231b2733' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%231b2733'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="logo" href="./"><span class="logo-mark" aria-hidden="true"></span>Whereabouts</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./" aria-current="page">Leaderboard</a>
+        <a href="features.html">Features</a>
+        <a href="method.html">Methodology</a>
+        <a href="#" data-repo hidden>GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="intro-block">
+        <h1>Can AI models tell where a street photo was taken?</h1>
+        <p class="lede">Each model sees one street-level photo at a time, with no other context, and names the country, the state or province, and the city. It earns a point for each part it gets right.</p>
+        <ul class="facts">
+          <li><b data-stat="images">–</b> photos</li>
+          <li><b data-stat="countries">–</b> countries</li>
+          <li><b data-stat="regions">–</b> world regions</li>
+          <li><b data-stat="models">–</b> models</li>
+        </ul>
+      </div>
+
+      <section class="block" aria-labelledby="lb-title">
+        <h2 id="lb-title" class="visually-hidden" style="position:absolute;left:-9999px">Leaderboard</h2>
+        <div class="tabs" role="tablist" aria-label="Benchmark tracks">
+          <button class="tab" role="tab" aria-selected="true" type="button">Urban</button>
+        </div>
+        <div class="board-meta">
+          <div id="legend"></div>
+          <div id="older-toggle"></div>
+        </div>
+        <div id="leaderboard"></div>
+        <p class="note">Score is points earned out of 3 per photo. The small range under it is a 95% confidence interval from resampling the photos. With <span data-stat="images">–</span> photos, models a few points apart are effectively tied. <a href="method.html#scoring">How scoring works</a>.</p>
+      </section>
+
+      <section class="block" aria-labelledby="region-title">
+        <h2 id="region-title">By region</h2>
+        <p class="intro">Score by where the photo was taken. Some regions have only a handful of photos, so treat those numbers as rough.</p>
+        <div id="regions"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Whereabouts. Test set version <span data-stat="version">–</span> (<span data-stat="images">–</span> photos). Results last updated <span data-stat="updated">–</span>.</p>
+      <p>The test photos are kept private so they can't end up in training data. Only scores are published. <a href="method.html">Read the methodology</a>.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
