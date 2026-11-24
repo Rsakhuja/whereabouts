@@ -12,9 +12,14 @@ place-name matching) is open, so you can run it on your own photos.
 
 ## Results
 
-| # | Model | Score | Country | State | City |
+| # | Model | Score (95% range) | Country | State | City |
 |---|---|---|---|---|---|
-| | _filled in after the first run_ | | | | |
+| 1 | Claude Opus 5.5 | 96.9% (93%–100%) | 99% | 96% | 96% |
+| 2 | GPT-6.2 Astra | 96.5% (93%–100%) | 99% | 96% | 95% |
+| 3 | Gemini 3.8 Flash | 93.4% (88%–98%) | 97% | 91% | 92% |
+| 4 | Grok 4.7 | 77.6% (70%–86%) | 91% | 70% | 72% |
+
+76 photos, test set version `f27c7dd3`, prompt v1, reasoning off (Grok 4.7 can't turn reasoning off, so it runs at its lowest setting, "low"). Run November 2026. Models whose ranges overlap are effectively tied.
 
 ## How it works
 
@@ -32,8 +37,8 @@ Full details: `site/method.html`, or the Methodology page on the site. Planned w
 npm install
 cp .env.example .env          # add AI_GATEWAY_API_KEY
 npm run import -- /path/to/batch1_2026-11-22   # adds a batch of photos to data/ (gitignored)
-npm run bench -- --model anthropic/claude-opus-5-5 --dry-run --limit 3   # free check
-npm run bench -- --model anthropic/claude-opus-5-5,openai/gpt-6-astra --concurrency 6
+npm run bench -- --model anthropic/claude-opus-5.5 --dry-run --limit 3   # free check
+npm run bench -- --model anthropic/claude-opus-5.5,openai/gpt-6.2-astra --concurrency 6
 npm run site                        # writes site/data.json (totals only)
 npm run dev                         # preview the site locally
 ```
