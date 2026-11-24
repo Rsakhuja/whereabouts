@@ -1,15 +1,18 @@
 // Re-scores the saved guesses in results/ with the current scorer and ontology. No API calls.
-// Use after adding aliases to src/ontology.ts.
+// Use after adding aliases to src/ontology.ts or changing the feature rules in src/clues.ts.
 //
 //   npm run rescore
 //
 // Refusals and errors are left as they are (errors get retried by npm run bench).
+// Also use after fixing an answer key and re-importing the batch: the new test-set version
+// is recorded for each model that has answered every photo.
 // A copy of each file is kept in results/backup-<timestamp>/ before it is rewritten.
 
 import * as fs from "fs";
 import * as path from "path";
 import { RESULTS_DIR, readManifest } from "./manifest";
 import { groundTruth, outcomeOf, ResultFile, Round, summarize } from "./run";
+import { categoriesForGuess } from "./clues";
 import { scoreGuess } from "./score";
 
 function main() {
@@ -36,6 +39,7 @@ function main() {
     let changed = 0;
     let unresolvedBefore = 0;
     let unresolvedAfter = 0;
+    let recategorised = 0;
     for (const [id, round] of Object.entries(result.rounds)) {
       const img = byId.get(id);
       if (round.unresolved_fields?.length) unresolvedBefore++;
@@ -49,7 +53,9 @@ function main() {
         outcome: outcomeOf(s.breakdown, s.points),
         points: s.points,
         breakdown: s.breakdown,
+        clue_categories: categoriesForGuess(round.guess.features),
       };
+      if (JSON.stringify(updated.clue_categories) !== JSON.stringify(round.clue_categories)) recategorised++;
       if (s.unresolved_fields) updated.unresolved_fields = s.unresolved_fields;
       else delete updated.unresolved_fields;
       if (updated.unresolved_fields?.length) unresolvedAfter++;
@@ -60,14 +66,19 @@ function main() {
       result.rounds[id] = updated;
     }
 
-    const images = manifest.images.filter((i) => i.id in result.rounds);
     const before = result.summary.pct;
-    result.summary = summarize(images, result.rounds);
+    // Same as the bench: every photo in the test set counts, unanswered ones score 0.
+    result.summary = summarize(manifest.images, result.rounds);
+    // Re-importing a batch (e.g. an answer-key fix) changes the test-set version. The saved
+    // answers are now scored against that version, so record it, but only if this model has
+    // answered every photo; otherwise npm run site must keep treating the run as incomplete.
+    const answeredAll = manifest.images.every((i) => result.rounds[i.id] && result.rounds[i.id].outcome !== "error");
+    if (answeredAll) result.dataset = { name: manifest.name, version: manifest.version, images: manifest.images.length };
     fs.writeFileSync(file, JSON.stringify(result, null, 2));
     totalChanged += changed;
     console.log(
       `${result.model}: ${changed} answer(s) changed, score ${pct(before)} → ${pct(result.summary.pct)}, ` +
-        `unresolved rounds ${unresolvedBefore} → ${unresolvedAfter}`,
+        `unresolved rounds ${unresolvedBefore} → ${unresolvedAfter}, feature types re-sorted on ${recategorised}`,
     );
   }
   console.log(`\nDone: ${totalChanged} answer(s) changed across ${files.length} file(s). Backup: ${path.relative(process.cwd(), backupDir)}`);
