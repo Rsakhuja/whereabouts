@@ -33,7 +33,7 @@ export type AdminID =
   | "ho_chi_minh_city" | "hanoi" | "prague_region" | "caba"
   | "karnataka" | "tamil_nadu" | "telangana" | "west_bengal" | "bagmati"
   | "western_province_lk" | "abu_dhabi_emirate" | "muscat_governorate"
-  | "doha_municipality" | "istanbul_province" | "almaty_region" | "tbilisi_city"
+  | "doha_municipality" | "istanbul_province" | "almaty_region" | "almaty_city" | "tbilisi_city"
   | "north_holland" | "lombardy" | "vienna_state" | "stockholm_county"
   | "capital_region_dk" | "bohemia" | "illinois" | "washington_state"
   | "massachusetts" | "british_columbia" | "quebec_province" | "jalisco"
@@ -373,7 +373,10 @@ export const ADMIN_ALIASES: Record<string, AdminID> = {
   "ad dawhah": "doha_municipality",
   "istanbul": "istanbul_province",
   "istanbul province": "istanbul_province",
-  "almaty": "almaty_region",
+  // Almaty city is its own first-level unit, separate from Almaty Region (whose capital is
+  // Konaev). A bare "Almaty" as a state means the city.
+  "almaty": "almaty_city",
+  "almaty city": "almaty_city",
   "tbilisi": "tbilisi_city",
   "north holland": "north_holland",
   "noordholland": "north_holland",
@@ -573,6 +576,20 @@ export const ADMIN_ALIASES: Record<string, AdminID> = {
   "부산광역시": "busan_metro",
   "กรุงเทพมหานคร": "bangkok",
   "منطقة الرياض": "riyadh",
+  // From the "place names to fix" review (2026-11-23): official, former or common names
+  // for the same first-level unit. Short or ambiguous forms are in SCOPED_ADMIN_ALIASES.
+  "special capital region of jakarta": "jakarta",
+  "jakarta special capital region": "jakarta",
+  "santiago metropolitan region": "santiago_metropolitan",
+  "region metropolitana": "santiago_metropolitan",
+  "grand casablanca": "casablanca_prefecture",
+  "lima metropolitan area": "lima_province",
+  "metropolitan lima": "lima_province",
+  "bangkok metropolis": "bangkok",
+  "latium": "lazio",
+  "sao paulo state": "sao_paulo",
+  "rio de janeiro state": "rio_de_janeiro_state",
+  "region vii": "central_visayas",
 };
 
 export const CITY_ALIASES: Record<string, CityID> = {
@@ -789,6 +806,15 @@ export const CITY_ALIASES: Record<string, CityID> = {
   "teheran": "tehran",
   "moab": "moab",
   "kayenta": "kayenta",
+  // From the "place names to fix" review (2026-11-23).
+  "taipei city": "taipei",
+  "caba": "buenos_aires",
+  "santiago de chile": "santiago",
+  "ciudad de panama": "panama_city",
+  "almaata": "almaty", // "Alma-Ata", former name (normalize() drops the hyphen)
+  "alma ata": "almaty",
+  "tiflis": "tbilisi",
+  "nct delhi": "delhi",
 };
 
 // Names that mean different places in different countries ("Punjab" is in both India and
@@ -798,6 +824,24 @@ export const CITY_ALIASES: Record<string, CityID> = {
 export const SCOPED_ADMIN_ALIASES: Partial<Record<CountryID, Record<string, AdminID>>> = {
   usa: {
     "san juan": "puerto_rico",
+    "wa": "washington_state", // scoped: "WA" is also Western Australia
+    "il": "illinois",
+    "ma": "massachusetts",
+  },
+  sri_lanka: {
+    "western": "western_province_lk", // many countries have a "Western" province
+  },
+  chile: {
+    "metropolitan region": "santiago_metropolitan",
+  },
+  egypt: {
+    "cairo": "cairo_governorate",
+  },
+  morocco: {
+    "casablanca": "casablanca_prefecture",
+  },
+  pakistan: {
+    "islamabad": "islamabad_capital_territory",
   },
   india: {
     "punjab": "punjab_in",

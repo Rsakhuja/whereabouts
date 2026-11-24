@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-23T01:50:17.786Z",
-  "repo_url": null,
+  "generated_at": "2026-11-24T00:24:57.796Z",
+  "repo_url": "https://github.com/Rsakhuja/whereabouts",
   "dataset": {
     "name": "Whereabouts",
-    "version": "ac287b88",
+    "version": "f27c7dd3",
     "images": 76,
     "countries": 48,
     "regions": {
@@ -50,10 +50,6 @@
       "label": "Landmarks"
     },
     {
-      "key": "people",
-      "label": "People & clothing"
-    },
-    {
       "key": "interface",
       "label": "Map interface & watermarks"
     },
@@ -78,20 +74,20 @@
         "n": 76,
         "refused": 0,
         "errors": 0,
-        "points": 219,
+        "points": 221,
         "maxPoints": 228,
-        "pct": 0.9605263157894737,
+        "pct": 0.9692982456140351,
         "ci95": [
-          0.9210526315789473,
-          0.9912280701754386
+          0.9298245614035089,
+          0.9956140350877194
         ],
         "country": 0.9868421052631579,
-        "admin": 0.9342105263157895,
+        "admin": 0.9605263157894737,
         "city": 0.9605263157894737,
         "outcomes": {
-          "city": 70,
+          "city": 72,
           "state": 1,
-          "country": 4,
+          "country": 2,
           "partial": 0,
           "wrong": 1,
           "refused": 0,
@@ -106,7 +102,7 @@
           },
           "Asia & Middle East": {
             "n": 33,
-            "pct": 0.9191919191919192,
+            "pct": 0.9292929292929293,
             "country": 0.9696969696969697,
             "city": 0.9090909090909091
           },
@@ -118,7 +114,7 @@
           },
           "Europe": {
             "n": 12,
-            "pct": 0.9722222222222222,
+            "pct": 1,
             "country": 1,
             "city": 1
           },
@@ -184,12 +180,6 @@
             "countryWhenCited": 1,
             "cityWhenCited": 1
           },
-          "people": {
-            "cited": 9,
-            "share": 0.11842105263157894,
-            "countryWhenCited": 1,
-            "cityWhenCited": 1
-          },
           "interface": {
             "cited": 0,
             "share": 0,
@@ -221,20 +211,20 @@
         "n": 76,
         "refused": 0,
         "errors": 0,
-        "points": 218,
+        "points": 220,
         "maxPoints": 228,
-        "pct": 0.956140350877193,
+        "pct": 0.9649122807017544,
         "ci95": [
-          0.9166666666666665,
-          0.9868421052631579
+          0.9254385964912282,
+          0.9956140350877192
         ],
         "country": 0.9868421052631579,
-        "admin": 0.9342105263157895,
+        "admin": 0.9605263157894737,
         "city": 0.9473684210526315,
         "outcomes": {
-          "city": 70,
+          "city": 72,
           "state": 1,
-          "country": 4,
+          "country": 2,
           "partial": 0,
           "wrong": 1,
           "refused": 0,
@@ -249,7 +239,7 @@
           },
           "Asia & Middle East": {
             "n": 33,
-            "pct": 0.9292929292929293,
+            "pct": 0.9393939393939394,
             "country": 0.9696969696969697,
             "city": 0.9090909090909091
           },
@@ -261,7 +251,7 @@
           },
           "Europe": {
             "n": 12,
-            "pct": 0.9722222222222222,
+            "pct": 1,
             "country": 1,
             "city": 1
           },
@@ -327,12 +317,6 @@
             "countryWhenCited": 1,
             "cityWhenCited": 1
           },
-          "people": {
-            "cited": 8,
-            "share": 0.10526315789473684,
-            "countryWhenCited": 1,
-            "cityWhenCited": 1
-          },
           "interface": {
             "cited": 0,
             "share": 0,
@@ -340,10 +324,10 @@
             "cityWhenCited": null
           },
           "other": {
-            "cited": 25,
-            "share": 0.32894736842105265,
-            "countryWhenCited": 0.96,
-            "cityWhenCited": 0.88
+            "cited": 26,
+            "share": 0.34210526315789475,
+            "countryWhenCited": 0.9615384615384616,
+            "cityWhenCited": 0.8846153846153846
           }
         },
         "avgCluesPerGuess": 4
@@ -364,20 +348,20 @@
         "n": 76,
         "refused": 0,
         "errors": 0,
-        "points": 211,
+        "points": 213,
         "maxPoints": 228,
-        "pct": 0.9254385964912281,
+        "pct": 0.9342105263157895,
         "ci95": [
-          0.8728070175438596,
-          0.969298245614035
+          0.881578947368421,
+          0.9780701754385964
         ],
         "country": 0.9736842105263158,
-        "admin": 0.881578947368421,
+        "admin": 0.9078947368421053,
         "city": 0.9210526315789473,
         "outcomes": {
-          "city": 66,
+          "city": 68,
           "state": 1,
-          "country": 7,
+          "country": 5,
           "partial": 0,
           "wrong": 2,
           "refused": 0,
@@ -392,7 +376,7 @@
           },
           "Asia & Middle East": {
             "n": 33,
-            "pct": 0.8888888888888888,
+            "pct": 0.898989898989899,
             "country": 0.9393939393939394,
             "city": 0.9090909090909091
           },
@@ -404,7 +388,7 @@
           },
           "Europe": {
             "n": 12,
-            "pct": 0.9444444444444444,
+            "pct": 0.9722222222222222,
             "country": 1,
             "city": 0.9166666666666666
           },
@@ -470,12 +454,6 @@
             "countryWhenCited": 0.9285714285714286,
             "cityWhenCited": 0.8571428571428571
           },
-          "people": {
-            "cited": 17,
-            "share": 0.2236842105263158,
-            "countryWhenCited": 0.9411764705882353,
-            "cityWhenCited": 0.8823529411764706
-          },
           "interface": {
             "cited": 1,
             "share": 0.013157894736842105,
@@ -483,10 +461,10 @@
             "cityWhenCited": 1
           },
           "other": {
-            "cited": 29,
-            "share": 0.3815789473684211,
+            "cited": 31,
+            "share": 0.40789473684210525,
             "countryWhenCited": 1,
-            "cityWhenCited": 0.9655172413793104
+            "cityWhenCited": 0.9354838709677419
           }
         },
         "avgCluesPerGuess": 4.4605263157894735
@@ -507,20 +485,20 @@
         "n": 76,
         "refused": 0,
         "errors": 0,
-        "points": 175,
+        "points": 177,
         "maxPoints": 228,
-        "pct": 0.7675438596491229,
+        "pct": 0.7763157894736842,
         "ci95": [
-          0.6885964912280702,
-          0.8464912280701755
+          0.6973684210526315,
+          0.8552631578947371
         ],
         "country": 0.9078947368421053,
-        "admin": 0.6710526315789473,
+        "admin": 0.6973684210526315,
         "city": 0.7236842105263158,
         "outcomes": {
-          "city": 50,
+          "city": 52,
           "state": 1,
-          "country": 18,
+          "country": 16,
           "partial": 0,
           "wrong": 7,
           "refused": 0,
@@ -535,7 +513,7 @@
           },
           "Asia & Middle East": {
             "n": 33,
-            "pct": 0.7070707070707071,
+            "pct": 0.7171717171717171,
             "country": 0.8484848484848485,
             "city": 0.6666666666666666
           },
@@ -547,7 +525,7 @@
           },
           "Europe": {
             "n": 12,
-            "pct": 0.8611111111111112,
+            "pct": 0.8888888888888888,
             "country": 1,
             "city": 0.8333333333333334
           },
@@ -613,12 +591,6 @@
             "countryWhenCited": 0.7692307692307693,
             "cityWhenCited": 0.6923076923076923
           },
-          "people": {
-            "cited": 7,
-            "share": 0.09210526315789473,
-            "countryWhenCited": 0.8571428571428571,
-            "cityWhenCited": 0.7142857142857143
-          },
           "interface": {
             "cited": 1,
             "share": 0.013157894736842105,
@@ -626,10 +598,10 @@
             "cityWhenCited": 1
           },
           "other": {
-            "cited": 40,
-            "share": 0.5263157894736842,
-            "countryWhenCited": 0.925,
-            "cityWhenCited": 0.8
+            "cited": 42,
+            "share": 0.5526315789473685,
+            "countryWhenCited": 0.9047619047619048,
+            "cityWhenCited": 0.7619047619047619
           }
         },
         "avgCluesPerGuess": 4.9605263157894735

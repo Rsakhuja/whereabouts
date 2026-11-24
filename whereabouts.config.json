@@ -1,5 +1,5 @@
 {
-  "repo_url": "",
+  "repo_url": "https://github.com/Rsakhuja/whereabouts",
   "models": {
     "anthropic/claude-opus-5.5": {
       "name": "Claude Opus 5.5"

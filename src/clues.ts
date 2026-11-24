@@ -11,7 +11,6 @@ export const CLUE_CATEGORIES = [
   { key: "nature", label: "Vegetation, terrain & climate", re: /\b(vegetation|trees?|palms?|plants?|tropical|arid|desert|climate|mountains?|hills?|terrain|soil|sky|weather|humid|foliage|greenery|grass|landscape|coast|sea|river)\b/i },
   { key: "infrastructure", label: "Poles, wires & street furniture", re: /\b(poles?|utility|power lines?|wires?|cables?|bollards?|street ?lights?|lamp ?posts?|traffic lights?|signals?|guard ?rails?|barriers?|fences?|bus stops?|street furniture|manholes?)\b/i },
   { key: "landmarks", label: "Landmarks", re: /\b(landmark|famous|monument|cathedral|church|mosque|temple|fort|palace|museum|stadium|statue|tower of|iconic|historic)\b/i },
-  { key: "people", label: "People & clothing", re: /\b(people|pedestrians?|clothing|dress|attire|hijab|turban|sari|uniform)\b/i },
   // Screen elements left in the captures (watermarks, map icons). Worth tracking: a model citing
   // these is reading the capture, not the place.
   { key: "interface", label: "Map interface & watermarks", re: /(\bwatermark|\bgoogle\b|©|copyright|\bstreet ?view (logo|interface|overlay)|navigation arrows?|map (icon|marker|pin)s?)/i },

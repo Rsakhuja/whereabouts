@@ -15,7 +15,7 @@
 
 ## 3. Pick the four models (10 min)
 6. On https://vercel.com/ai-gateway/models, find the exact IDs for the latest flagship from
-   Anthropic, OpenAI, Google and xAI (they look like `anthropic/claude-opus-5-5`).
+   Anthropic, OpenAI, Google and xAI (they look like `anthropic/claude-opus-5.5`).
    Prefer stable IDs over ones ending in `-latest`, `-preview` or `-exp`.
 7. Put their display names in `whereabouts.config.json` under `"models"`.
 

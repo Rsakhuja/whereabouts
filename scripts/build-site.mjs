@@ -24,7 +24,7 @@ const manifest = readJson(manifestPath);
 const CATEGORIES = [
   ["script", "Script & language"], ["signs", "Signs & shop names"], ["roads", "Road markings & driving side"],
   ["vehicles", "Vehicles & plates"], ["architecture", "Architecture & buildings"], ["nature", "Vegetation, terrain & climate"],
-  ["infrastructure", "Poles, wires & street furniture"], ["landmarks", "Landmarks"], ["people", "People & clothing"], ["interface", "Map interface & watermarks"], ["other", "Other"],
+  ["infrastructure", "Poles, wires & street furniture"], ["landmarks", "Landmarks"], ["interface", "Map interface & watermarks"], ["other", "Other"],
 ].map(([key, label]) => ({ key, label }));
 
 const resultsDir = path.join(ROOT, "results");

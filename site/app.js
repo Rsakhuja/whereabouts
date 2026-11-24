@@ -153,8 +153,8 @@ function renderClues(data) {
   const share = $("#clue-share"), payoff = $("#clue-payoff");
   const models = data.models.filter((m) => !m.older);
   if (!models.length) { share.replaceChildren(emptyState()); payoff.closest("section").hidden = true; return; }
-  // Hide categories no model ever cited.
-  const cats = data.categories.filter((c) => models.some((m) => (m.summary.clues[c.key]?.cited ?? 0) > 0));
+  // Hide categories no model ever cited, and the map-interface category (not shown on the site).
+  const cats = data.categories.filter((c) => c.key !== "interface" && models.some((m) => (m.summary.clues[c.key]?.cited ?? 0) > 0));
   const header = el("thead", {}, el("tr", {}, el("th", { class: "l", scope: "col" }, "Feature type"),
     models.map((m) => el("th", { scope: "col" }, m.name))));
 
